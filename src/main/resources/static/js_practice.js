@@ -1,7 +1,7 @@
 // 댓글 불러오기 함수
 async function loadComments(pokemonNumber) {
     try {
-        const response = await fetch(`https://<your-project-name>.up.railway.app/api/comments/${pokemonNumber}`);
+        const response = await fetch(`https://randompokemon-comments-production.up.railway.app//api/comments/${pokemonNumber}`);
         const comments = await response.json();
 
         let commentsHtml = '';
