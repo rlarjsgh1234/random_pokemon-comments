@@ -2,7 +2,7 @@ async function postComment(pokemonNumber, content) {
     const comment = { pokemonNumber, comment: content };
 
     try {
-        const response = await fetch('http://localhost:8080/api/comments', {
+        const response = await fetch('https://<your-project-name>.up.railway.app/api/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
