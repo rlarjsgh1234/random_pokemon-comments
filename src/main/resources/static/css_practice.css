@@ -1,0 +1,104 @@
+/* 전체 페이지 높이 100%, 여백 제거, 상대 위치 설정 */
+body, html {
+    height: 100%;
+    margin: 0;
+    position: relative;  /* ::before 배  경 이미지를 절대 위치로 넣기 위해 필요 */
+}
+
+/* 배경 이미지 설정: 흐릿한 배경 그림 효과 */
+.backgroun::before {
+    content: "";  /* 의사 요소 생성 */
+    position: absolute;  /* 부모 요소(body) 기준 절대 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("pokemon_background.png");  /* 배경 이미지 */
+    background-size: 50% auto;  /* 가로는 50%, 세로는 비율 유지 */
+    background-position: center;  /* 중앙 정렬 */
+    background-repeat: no-repeat;  /* 반복 없음 */
+    background-attachment: fixed;  /* 스크롤할 때 배경 고정 */
+    opacity: 0.7;  /* 투명도 조절로 흐릿하게 */
+    z-index: -1;  /* 가장 뒤로 보내기 */
+}
+
+/* 전체 레이아웃: 포켓몬 영역과 게시판 영역 나란히 배치 */
+.main-layout {
+    display: flex;  /* 자식 요소를 가로로 정렬 */
+    justify-content: center;  /* 수평 중앙 정렬 */
+    align-items: flex-start;  /* 수직 위쪽 정렬 */
+    gap: 80px;  /* 포켓몬 영역과 게시판 사이 간격 */
+    padding: 40px;  /* 전체 바깥 여백 */
+    height: 100vh;  /* 전체 화면 높이 */
+
+    box-sizing: border-box;  /* 패딩 포함한 박스 계산 */
+}
+
+/* 포켓몬 영역: 버튼 위, 정보 아래 세로 정렬 */
+.pokemon-section {
+    display: flex;  /* 내부 요소 정렬 */
+    flex-direction: column;  /* 세로 정렬 */
+    gap: 20px;  /* 버튼과 결과 사이 간격 */
+
+    width: 800px;
+
+}
+
+.pokemon-section h1{
+    text-align: center;
+}
+
+/* 게시판 영역: 박스 모양, 배경 흰색 반투명 */
+.board-section {
+    background-color: rgba(255, 255, 255, 0.85);  /* 반투명 흰 배경 */
+    padding: 20px;  /* 안쪽 여백 */
+    border-radius: 10px;  /* 테두리 둥글게 */
+    width: 400px;  /* 너비 고정 */
+    max-height: 80vh;  /* 최대 높이 제한 (스크롤 생김) */
+    overflow-y: auto;  /* 세로 스크롤 가능 */
+}
+
+/* 포켓몬 버튼: 둥글고 투명한 스타일 */
+.poke-button {
+    opacity: 0.7;  /* 전체 투명도 */
+    color: rgba(255,255,255,0.2);  /* 텍스트 색 거의 안 보이게 */
+    width: 150px;
+    height: 150px;
+    padding: 20px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;  /* 둥근 모서리 */
+    cursor: pointer;  /* 마우스 커서 손모양 */
+    background-color: rgba(0, 0, 0, 0.6);  /* 반투명한 검은 배경 */
+    background-size: cover;  /* 배경 이미지 꽉 차게 */
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s;  /* hover 시 부드럽게 전환 */
+    margin: 0 auto;
+}
+
+/* 버튼에 마우스 올렸을 때 배경 더 진하게 */
+.poke-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 게시판 테이블 기본 스타일 */
+#board {
+    width: 100%;  /* 부모 영역 가득 채움 */
+    border-collapse: collapse;  /* 테두리 겹침 제거 */
+    margin-top: 15px;  /* 위 여백 */
+}
+
+/* 게시판 테이블 셀 기본 스타일 */
+#board th, #board td {
+    border: 1px solid #aaa;  /* 옅은 회색 테두리 */
+    padding: 8px;  /* 셀 안쪽 여백 */
+    text-align: left;  /* 텍스트 왼쪽 정렬 */
+}
+
+#postForm{
+    width: 100%
+}
+#content{
+    width: 100%;
+}
